@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Products</title>
+</head>
+<body>
+    <h1>Курсы</h1>
+    <form method="post">
+        {% if user.is_superuser %}
+            <a href="{% url 'create' %}">Создать продукт</a>
+            <p>-----------------------------</p>
+        {% endif %}
+        {% csrf_token %}
+        {% for course in data %}
+            <a href="{% url 'product_show' product_id=course.id %}">{{ course.title }}</a>
+            <p>author: {{ course.author }}</p>
+            <p>price: {{ course.price }}</p>
+            <p>-----------------------------</p>
+        {% endfor %}
+        <button name="main">На главную</button>
+    </form>
+</body>
+</html>

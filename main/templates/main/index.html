@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MainPage</title>
+</head>
+<body>
+    {% csrf_token %}
+    <form method="post">
+        {% if auth %}
+            {% csrf_token %}
+            <h1>you authenticated</h1>
+            <button name="profile">Профиль</button>
+            <button name="logout">Выйти</button>
+        {% else %}
+            {% csrf_token %}
+            <h1>you not authenticated</h1>
+            <button name="register">Регистрация</button>
+            <button name="login">Логин</button>
+        {% endif %}
+        <button name="products">Курсы</button>
+    </form>
+</body>
+</html>
