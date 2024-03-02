@@ -16,6 +16,9 @@
             <a href="{% url 'product_show' product_id=course.id %}">{{ course.title }}</a>
             <p>author: {{ course.author }}</p>
             <p>price: {{ course.price }}</p>
+            <p>amount of users: {{ course.count }}</p>
+            <p>percentage of groups filling: {{ course.percentage }}</p>
+            <p>percentage of products purchase: {{ course.buy_percent }}</p>
             <p>-----------------------------</p>
         {% endfor %}
         <button name="main">На главную</button>
